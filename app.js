@@ -1,8 +1,14 @@
 // //Q1
 
 const info = [];
+const items = [];
 
 let userName = prompt("Enter your Name please :");
+const parentElement = document.getElementById('parentDiv');
+const newParagraph = document.createElement('p');
+newParagraph.textContent = userName;
+parentElement.appendChild(newParagraph);
+
 info.push(userName);
 let Gender;
 
@@ -14,23 +20,37 @@ while (true) {
     alert("Invalid input. Please enter 'male' or 'female'.");
   }
 }
-
 if (Gender === "male") {
+  items.push(Gender);
   info.push(Gender);
-
   alert(`Welcome, Mr. ${userName}!`);
 } else if (Gender === "female") {
   info.push(Gender);
-
+  items.push(Gender);
   alert(`Welcome, Ms. ${userName}!`);
 }
+
 let orderChoice = prompt("Would you like to order shawarma, zinger, or burger");
+
+items.push(orderChoice);
 info.push(orderChoice);
 alert(`Your ${orderChoice} is being prepared.`);
 
-for(let i = 0 ;i<info.length;i++){
 
-console.log(info[i]);
+  const orderedList = document.createElement('ol');
+
+
+  for (let i = 0; i < items.length; i++) {
+      const listItem = document.createElement('li'); // Create <li>
+      listItem.textContent = items[i]; // Set the text of the list item
+      orderedList.appendChild(listItem); // Add the <li> to the <ol>
+  }
+
+  document.getElementById('list-container').appendChild(orderedList);
+
+for (let i = 0; i < info.length; i++) {
+
+  console.log(info[i]);
 
 }
 
