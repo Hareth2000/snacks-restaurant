@@ -1,19 +1,26 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
 
-    background-color: #f7f7f7;
-    color: #c73131;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1 {
-    margin: 20px 0;
-  }
-  
-  input, button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
+form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+label {
+  font-weight: bold;
+}
+
+#result {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e7f7d1;
+  border: 1px solid #d4edc9;
+  border-radius: 8px;
+}
