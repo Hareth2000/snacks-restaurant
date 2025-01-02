@@ -1,58 +1,124 @@
-// //Q1
+// // //Q1
 
-const info = [];
-const items = [];
+// const info = [];
+// const items = [];
 
-let userName = prompt("Enter your Name please :");
-const parentElement = document.getElementById('parentDiv');
-const newParagraph = document.createElement('p');
-newParagraph.textContent = userName;
-parentElement.appendChild(newParagraph);
+// let userName = prompt("Enter your Name please :");
+// const parentElement = document.getElementById('parentDiv');
+// const newParagraph = document.createElement('p');
+// newParagraph.textContent = userName;
+// parentElement.appendChild(newParagraph);
 
-info.push(userName);
-let Gender;
+// info.push(userName);
+// let Gender;
 
-while (true) {
-  Gender = prompt("Enter Your Gender please:");
-  if (Gender === "male" || Gender === "female") {
-    break;
-  } else {
-    alert("Invalid input. Please enter 'male' or 'female'.");
+// while (true) {
+//   Gender = prompt("Enter Your Gender please:");
+//   if (Gender === "male" || Gender === "female") {
+//     break;
+//   } else {
+//     alert("Invalid input. Please enter 'male' or 'female'.");
+//   }
+// }
+// if (Gender === "male") {
+//   items.push(Gender);
+//   info.push(Gender);
+//   alert(`Welcome, Mr. ${userName}!`);
+// } else if (Gender === "female") {
+//   info.push(Gender);
+//   items.push(Gender);
+//   alert(`Welcome, Ms. ${userName}!`);
+// }
+
+// let orderChoice = prompt("Would you like to order shawarma, zinger, or burger");
+
+// items.push(orderChoice);
+// info.push(orderChoice);
+// alert(`Your ${orderChoice} is being prepared.`);
+
+
+//   const orderedList = document.createElement('ol');
+
+
+//   for (let i = 0; i < items.length; i++) {
+//       const listItem = document.createElement('li'); 
+//       listItem.textContent = items[i]; 
+//       orderedList.appendChild(listItem); 
+//   }
+
+//   document.getElementById('list-container').appendChild(orderedList);
+
+// for (let i = 0; i < info.length; i++) {
+
+//   console.log(info[i]);
+
+// }
+
+///////////// event task //////////////
+
+
+const genderSelect = document.getElementById("gender");
+const radioButtonDiv = document.getElementById("radiobutton");
+const submitButton = document.getElementById("submitBtn");
+const resultDiv = document.getElementById("result");
+
+
+const genderOptions = ["Male", "Female"];
+genderOptions.forEach((gender) => {
+  const option = document.createElement("option");
+  option.value = gender;
+  option.textContent = gender;
+  genderSelect.appendChild(option);
+});
+
+const orders = ["Shawarma", "Zinger", "Burger"];
+orders.forEach((order) => {
+  const radio = document.createElement("input");
+  radio.type = "radio";
+  radio.id = order.toLowerCase();
+  radio.name = "order";
+  radio.value = order;
+
+  const label = document.createElement("label");
+  label.setAttribute("for", radio.id);
+  label.textContent = order;
+
+  radioButtonDiv.appendChild(radio);
+  radioButtonDiv.appendChild(label);
+  radioButtonDiv.appendChild(document.createElement("br"));
+});
+
+submitButton.addEventListener("click", function () {
+
+  const username = document.getElementById("username").value;
+  const age = document.getElementById("age").value;
+  const gender = document.getElementById("gender").value;
+  const orderType = document.querySelector('input[name="order"]:checked')?.value;
+
+  if (!username || !age || !gender || !orderType) {
+    resultDiv.innerHTML = `<p style="color: red;">Please fill in all fields!</p>`;
+    return;
   }
-}
-if (Gender === "male") {
-  items.push(Gender);
-  info.push(Gender);
-  alert(`Welcome, Mr. ${userName}!`);
-} else if (Gender === "female") {
-  info.push(Gender);
-  items.push(Gender);
-  alert(`Welcome, Ms. ${userName}!`);
-}
 
-let orderChoice = prompt("Would you like to order shawarma, zinger, or burger");
-
-items.push(orderChoice);
-info.push(orderChoice);
-alert(`Your ${orderChoice} is being prepared.`);
+  resultDiv.innerHTML = `
+        <p><strong>Username:</strong> ${username}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Order Type:</strong> ${orderType}</p>
+    `;
+});
 
 
-  const orderedList = document.createElement('ol');
+
+////////////////////////////////////////////////////////
 
 
-  for (let i = 0; i < items.length; i++) {
-      const listItem = document.createElement('li'); // Create <li>
-      listItem.textContent = items[i]; // Set the text of the list item
-      orderedList.appendChild(listItem); // Add the <li> to the <ol>
-  }
 
-  document.getElementById('list-container').appendChild(orderedList);
 
-for (let i = 0; i < info.length; i++) {
 
-  console.log(info[i]);
 
-}
+
+
 
 
 
